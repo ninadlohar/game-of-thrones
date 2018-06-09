@@ -1,0 +1,49 @@
+<div class="search-container">
+  <div class="col-md-3 search-box">
+    <p>SEARCH:</p>
+    <input type="text" [(ngModel)]="search">
+  </div>
+</div>
+<div class="select-dropdown">
+  FILTER BY CATEGORIES
+  <select [(ngModel)]="view">
+    <option value="" [selected]="">All</option>
+    <option value="characters">Characters</option>
+    <option value="houses">Houses</option>
+    <option value="books">Books</option>
+  </select>
+</div>
+<div class="row" *ngIf="allData.length>0" style="text-align: center">
+  <div class="col-md-3 col-xs-3" *ngFor="let data of allData|filter:search|sort|select:view">
+    <div class="col col-md-12 col-xs-12" *ngIf="data.gender">
+      <div class="card" [ngStyle]="{'border': '2px solid red'}">
+        <img class="card-img-top" src="../../assets/characters.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{data.aliases}}</h5>
+
+          <a [routerLink]="['/character-view',data.url.split('/').pop()]" class="btn btn-primary btn-sm">Get Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-md-12 col-xs-12" *ngIf="data.isbn">
+      <div class="card" [ngStyle]="{'border': '2px solid green'}">
+        <img class="card-img-top" src="../../assets/bookz.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{data.name}}</h5>
+          <a [routerLink]="['/book-view',data.url.split('/').pop()]" class="btn btn-primary btn-sm">Get Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-md-12 col-xs-12" *ngIf="data.region">
+      <div class="card" [ngStyle]="{'border': '2px solid blue'}">
+        <img class="card-img-top" src="../../assets/hou.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{data.name}}</h5>
+          <a [routerLink]="['/house-view',data.url.split('/').pop()]" class="btn btn-primary btn-sm">Get Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

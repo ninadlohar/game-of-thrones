@@ -1,0 +1,48 @@
+.card {
+  transition: transform .2s;
+  margin: 15px;
+}
+
+.card:hover {
+  transform: scale(1.2);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+body {
+  font-family: 'Roboto';
+  background: grey;
+}
+
+.search-box {
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 100px;
+}
+
+.search-box p {
+  /* padding-left: 40px; */
+  /* padding-top: 3px; */
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.search-container {}
+
+.search-box input {
+  height: 30px;
+  width: 80%;
+}
+
+red-card {
+  border: 2px solid red;
+}
+
+.select-dropdown {
+  background: silver;
+  padding-top: 50px;
+  text-align: center;
+  padding-bottom: 45px;
+}
